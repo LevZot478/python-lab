@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# IDE
+.idea/
+
+# Local password storage
+vault.json
+.env
+.env.*
+!.env.example
+
+# Testing tools
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
