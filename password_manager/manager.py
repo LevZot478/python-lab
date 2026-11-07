@@ -40,9 +40,7 @@ class VaultData(TypedDict):
 
 def _derive(password: str, salt: bytes) -> bytes:
     """Derive 32 bytes from a password using salted PBKDF2-HMAC-SHA256."""
-    return hashlib.pbkdf2_hmac(
-        "sha256", password.encode("utf-8"), salt, _ITERATIONS, dklen=32
-    )
+    return hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, _ITERATIONS, dklen=32)
 
 
 def generate_password(length: int = 20) -> str:
