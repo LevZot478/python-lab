@@ -15,6 +15,14 @@ python -m password_manager.main --unlock
 python -m password_manager.main --generate --length 20
 ```
 
+If [`uv`](https://docs.astral.sh/uv/) is installed, the same program can be launched directly through the course's preferred runner:
+
+```bash
+uv run python -m password_manager.main --init
+uv run python -m password_manager.main --unlock
+uv run python -m password_manager.main --generate --length 20
+```
+
 After `--unlock`, choose `1` to add, `2` to list service names, `3` to view credentials (master password confirmation), `4` to delete, `5` to exit. You can use `--file path/to/vault.json` to choose a different vault file.
 
 **Never enter real passwords while demonstrating the assignment.** Use made-up examples. `vault.json`, `.env` and `.venv` are excluded via `.gitignore`.
