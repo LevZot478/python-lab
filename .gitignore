@@ -1,18 +1,18 @@
-# Python
+# Python / IDE / local secrets
 __pycache__/
 *.py[cod]
 .venv/
-
-# IDE
+venv/
 .idea/
-
-# Local password storage
 vault.json
+*.vault.json
 .env
 .env.*
 !.env.example
-
-# Testing tools
+.vault-*.tmp
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+*.egg-info/
+build/
+dist/

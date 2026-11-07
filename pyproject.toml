@@ -1,5 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "labwork"
-version = "0.1.0"
+name = "password-manager-lab"
+version = "1.0.0"
+description = "Encrypted command-line password vault for Python lab 1"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["cryptography>=42,<48"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "mypy>=1.13,<2"]
+
+[project.scripts]
+password-manager = "password_manager.main:main"
+
+[tool.setuptools.packages.find]
+include = ["password_manager*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["password_manager", "tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
