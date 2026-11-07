@@ -1,6 +1,7 @@
 """Password vault: salted master verification and encrypted JSON entries."""
 
 import base64
+import binascii
 import hashlib
 import hmac
 import json
@@ -98,7 +99,7 @@ class PasswordManager:
             auth_salt = base64.b64decode(self._data["auth_salt"], validate=True)
             stored = base64.b64decode(self._data["password_hash"], validate=True)
             key_salt = base64.b64decode(self._data["key_salt"], validate=True)
-        except (ValueError, base64.binascii.Error) as exc:
+        except (ValueError, binascii.Error) as exc:
             raise VaultError("Vault contains invalid salt or hash data") from exc
 
         if not hmac.compare_digest(_derive(password, auth_salt), stored):
